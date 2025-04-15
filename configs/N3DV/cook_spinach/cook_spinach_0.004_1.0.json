@@ -1,0 +1,60 @@
+{   
+    "scene": "cook_spinach",
+    "base_source_path": "path/to/N3DV/Dataset/",
+    "base_model_path": "outputs_N3DV/",
+    "lmbda": 0.004,
+    "P_lmbda": 1.0,
+    "frame_start": 1,
+    "frame_end": 299,
+
+    "model_params":
+    {
+        "sh_degree": 3,
+        "feat_dim": 50,
+        "n_offsets": 10,
+        "voxel_size": 0.001,
+        "update_depth": 3,
+        "update_init_factor": 16,
+        "update_hierachy_factor": 4,
+        "source_path": "",
+        "model_path": "",
+        "images": "images_2",
+        "resolution": 1,
+        "white_background": false,
+        "llffhold": -1,
+        "enable_filter": true,
+        "data_device": "cuda",
+        "eval": true,
+        "lod": 0,
+        "ref_path": "",
+        "ref_iter": -1
+    },
+
+    "Init_frame_params":
+    {
+        "iterations": 15000,
+        "test_iterations": [15000],
+        "save_iterations": [15000],
+        "start_stat": 500,
+        "update_from": 1500,
+        "update_interval": 100,
+        "update_until": 5000,
+        "step_flag1": 1000,
+        "step_flag2": 3000
+    },
+
+    "P_frame_params":
+    {
+        "iterations": 300,
+        "first_ref_iteration": 15000,
+        "ref_iter": 300,
+        "test_iterations": [300],
+        "save_iterations": [300],
+        "ntc_cfg":
+        {
+            "n_features_per_level": 4,
+            "resolutions_list_2D": [512, 1024, 2048, 4096],
+            "log2_hashmap_size_2D": 15
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{   
+    "scene": "VRU_dg4",
+    "base_source_path": "path/to/VRU/Dataset/",
+    "base_model_path": "outputs_VRU/",
+    "lmbda": 0.004,
+    "P_lmbda": 1.0,
+    "frame_start": 1,
+    "frame_end": 249,
+
+    "model_params":
+    {
+        "sh_degree": 3,
+        "feat_dim": 50,
+        "n_offsets": 10,
+        "voxel_size": 0.001,
+        "update_depth": 3,
+        "update_init_factor": 16,
+        "update_hierachy_factor": 4,
+        "source_path": "",
+        "model_path": "",
+        "images": "images",
+        "resolution": 1,
+        "white_background": false,
+        "llffhold": 10,
+        "enable_filter": false,
+        "data_device": "cuda",
+        "eval": true,
+        "lod": 0,
+        "ref_path": "",
+        "ref_iter": -1
+    },
+
+    "Init_frame_params":
+    {
+        "iterations": 30000,
+        "test_iterations": [30000],
+        "save_iterations": [30000],
+        "start_stat": 500,
+        "update_from": 1500,
+        "update_interval": 100,
+        "update_until": 15000,
+        "step_flag1": 3000,
+        "step_flag2": 10000
+    },
+
+    "I_frame_params":
+    {
+        "iterations": 30000,
+        "test_iterations": [30000],
+        "save_iterations": [30000],
+        "start_stat": 500,
+        "update_from": 1500,
+        "update_interval": 100,
+        "update_until": 15000,
+        "step_flag1": 3000,
+        "step_flag2": 10000,
+        "ref_iter": 1500
+    },
+
+    "P_frame_params":
+    {
+        "iterations": 500,
+        "first_ref_iteration": 30000,
+        "ref_iter": 500,
+        "test_iterations": [500],
+        "save_iterations": [500],
+        "ntc_cfg":
+        {
+            "n_features_per_level": 4,
+            "resolutions_list_2D": [1024, 2048, 4096, 8192],
+            "log2_hashmap_size_2D": 17
+        }
+    }
+}
