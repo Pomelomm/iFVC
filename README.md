@@ -101,12 +101,23 @@ python eval_frames.py -m --path base_model_path/scene/
 ```
 to caculate the average metrics of the scene.
 
-4.Initial model at timestep 0 for each scene is available from [here](https://drive.google.com/drive/folders/1Ohhr7MXgX7Zqlr5JvowNGSZX9Ki5zTHz?usp=sharing). You can `unzip` them and start training from timestep 1:
-```
-unzip outputs_N3DV.zip -d path/to/iFVC
-unzip outputs_MeetRoom.zip -d path/to/iFVC
-unzip outputs_VRU.zip -d path/to/iFVC
-```
+4.The quality of the initial model at timestep 0 for each scene is crucial to iFVC. The performance metrics for the initial frame in our experiments are as follows:
+| N3DV          | PSNR (dB)| SIZE (MB)|
+|----------------|---------|---------|
+| Coffee Martini | 28.53 | 3.67 |
+| Cook Spinach   | 33.42 | 2.42 |
+| Cut beef       | 34.22 | 2.34 |
+| Flame Salmon   | 29.17 | 3.61 |
+| Flame Steak    | 33.31 | 1.88 |
+| Sear Steak     | 34.59 | 1.83 |
+
+| MeetRoom          | PSNR (dB)| SIZE (MB)|
+|----------------|---------|---------|
+| Discussion | 32.56 | 1.62 |
+| Trimming   | 33.77 | 1.36 |
+| VRheadset  | 32.41 | 1.52 |
+
+For better initialization, you can run frame 0 multiple times to obtain a good initial model.
 
 ## Contact
 If you have any questions, please feel free to contact me via `tly2640159930@163.com`.
