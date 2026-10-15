@@ -15,6 +15,7 @@ dependencies:
   - pytorch-scatter
   - tqdm
   - pip:
+    - colorama==0.4.6
     - einops
     - wandb==0.16.4
     - lpips

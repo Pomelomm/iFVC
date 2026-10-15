@@ -186,7 +186,8 @@ def training_I_frame(args_param, dataset, opt, pipe, dataset_name, testing_itera
         Ll1 = l1_loss(image, gt_image)
 
         ssim_loss = (1.0 - ssim(image, gt_image))
-        scaling_reg = scaling.prod(dim=1).mean()
+        # Avoid the PyTorch 1.12 NVRTC prod kernel, which CUDA 11.6 cannot compile for RTX 4090 (sm_89).
+        scaling_reg = (scaling[:, 0] * scaling[:, 1] * scaling[:, 2]).mean()
         loss = (1.0 - opt.lambda_dssim) * Ll1 + opt.lambda_dssim * ssim_loss + 0.01*scaling_reg
 
         if bit_per_param is not None:
